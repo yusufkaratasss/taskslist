@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <link rel="stylesheet" href="görevlerlistesı.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #gerisi {
+      flex-grow: 1;
+    }
+
+    .popup {
+      max-width: 100%;
+    }
+
+
+    th,
+    td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    .input-field {
+      width: 200px;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #aaa;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    #saveChangesBtn {
+      margin-top: 10px;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #555;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+    }
+
+    .input-field {
+      width: 40%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .input-field2 {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+    }
+
+    #saveChangesBtn {
+      width: 40%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #updateChangesBtn {
+      width: 30%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+ 
+    #updateChangesBtn:hover {
+      background-color: #0056b3;
+    }
+
+    #ekleButton {
+      background-color: #007BFF;
+      color: white;
+      font-size: 13px;
+      padding: 0px 3px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  
+    #ekleButton:hover {
+      background-color: #0056b3;
+    }
+
+    #save {
+      width: 40%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #saveChangesBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+  <br>
+
+  </div>
+
+  <div style="height: 500px; overflow: auto;" id="gerisi">
+
+    <table id="table233">
+
+      <thead>
+        <tr>
+          <th>Görev<br>tipi id</th>
+
+          <th>Görev<br>tipi</th>
+
+          <th>Görev<br>id</th>
+
+          <th>Kullanıcı <br>id</th>
+
+          <th>Kullanıcı <br>adı</th>
+
+          <th>Tarihi</th>
+
+          <th>tc</th>
+
+          <th>Açıklama</th>
+
+          <th>Güncelleme</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="tableBody2"></tbody>
+
+    </table>
+
+    <button onclick="openPopup()" style="margin-top: 20px;" id="ekleButton">Ekle</button>
+
+  </div>
+
+  <div id="popup" class="popup">
+
+    <div class="popup-content">
+
+      <span class="close" onclick="closePopup()">&times;</span>
+
+      <!-- 2 -->
+
+      <div id="selectis2" style="display: none;">
+        <label for="s">Mevcut kayıtlar</label><br>
+
+        <select id="select" onchange="populateForm()">
+
+          <option value="" disabled selected>Mevcut Kayıtlar</option>
+        </select>
+
+      </div>
+      
+      <br>
+      <label for="selectis">Görev tipi</label>
+      <div id="selectis" style="display: block;">
+
+        <select id="select2" onchange="populateForm2()">
+
+          <option value="" disabled selected>Görev tipi</option>
+
+        </select>
+
+        <br><br>
+        
+        <!-- 2 -->
+        
+        <!-- 3 -->
+
+        <div class="input-group">
+
+          <div id="selectis3" style="display: block;">
+            <label for="s">Kullaıcılar</label><br>
+
+          <select id="select3" onchange="populateForm3()">
+
+            <option value="" disabled selected>Kullanıcılar</option>
+
+          </select>
+        
+        </div>
+        <br>
+        
+        <label for="kullanici">Yeni kullanıcı:</label>
+          <input type="checkbox" id="kullanici" name="kullanici" value="kullanici" onchange="chechbox()">
+         
+         
+          <div c id="input2" style="display: none;">
+            <label for="username">Kullanıcı adı:</label><br>
+            <input type="text" class="input-field2" id="username" placeholder="İsim" required>
+            <br>
+            <label for="tc">Tc kimlik:</label><br>
+            <input type="text" class="input-field2" id="tc" placeholder="tc" maxlength="11" required>
+            <br><label for="birthdate">Doğum tarihi:</label><br>
+            <input type="date" id="birthdate" class="input-field2" placeholder="yıl/ay/gün" required>
+            <!-- 3 -->
+          </div>
+        
+
+          <!-- 1 -->
+
+          <label for="text">Açıklama:</label>
+
+          <textarea type="text" class="input-field" id="text" style="width: 280px; height: 100px; margin-top: 0px;"
+            name="" id="" cols="30" placeholder="Açıklama" rows="10"></textarea>
+
+        </div>
+
+        <!-- 1 -->
+
+        <button id="updateChangesBtn" style="display: block;" onclick="saveUserData2()">Gorev ekle</button>
+
+        <button id="saveChangesBtn" style="display: none;" onclick="saveUserData()">Kullanıcı ve gorev ekle</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Yeni kullanıcı kısmı  -->
+
+  <div id="popup2" class="popup">
+
+    <span class="close" onclick="closePopup2()">&times;</span>
+    <label for="s">Görev tipi</label><br>
+
+    <select id="select4" onchange="populateForm2()">
+
+      <option value="" disabled selected>Görev tipi</option>
+
+    </select>
+
+    <br>
+
+    <br>
+
+    <label for="username">Kullanıcı adı:</label><br>
+
+    <input type="text" class="input-field" id="username2" placeholder="İsim" required><br>
+
+    <label for="tc">Tc kimlik:</label><br>
+
+    <input type="text" class="input-field" id="tc2" placeholder="tc" maxlength="11" required><br>
+
+    <label for="birthdate">Doğum tarihi:</label><br>
+
+    <input type="date" id="birthdate2" class="input-field" placeholder="yıl/ay/gün" required><br>
+
+    <label for="text">Açıklama:</label><br>
+
+    <textarea type="text" class="input-field" id="text1" style="width: 280px; height: 100px; margin-top: 0px;" name=""
+      
+    id="" cols="30" placeholder="Açıklama" rows="10"></textarea>
+
+    <br>
+
+    <button id="saveChangesBtn2" onclick="saveUserData()">Kaydet</button>
+
+  </div>
+
+  <script src="görevlerlistesı.js"></script>
+
+</body>
+
+</html>

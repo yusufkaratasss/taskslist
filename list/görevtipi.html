@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <link rel="stylesheet" href="görevtipı.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    .input-field {
+      width: 200px;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #ff0000;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    #saveChangesBtn {
+      margin-top: 10px;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(0, 0, 0);
+      border: 1px solid #ddd;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #0400ff;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+    }
+   
+    #ekleButton {
+      background-color: #007BFF;
+      color: white;
+      font-size: 13px;
+      padding: 0px 3px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  
+    #ekleButton:hover {
+      background-color: #0056b3;
+    }
+    .input-field {
+      width: 40%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+    }
+
+    #saveChangesBtn {
+      width: 40%;
+      padding: 10px;
+      background-color: #ffffff;
+      color: rgb(255, 255, 255);
+      border: none;
+      cursor: pointer;
+    }
+
+    #saveChangesBtn:hover {
+      background-color: #0056b3;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+    <br>
+  
+  </div>
+  
+  <div style="height: 500px; overflow: auto;" id="gerisi">
+  
+    <table id="table3">
+  
+      <thead>
+  
+        <tr>
+  
+          <th id="taskTypeId">objectId</th>
+          
+          <th>Description</th>
+
+          <th>Güncelleme</th>
+
+        </tr>
+  
+      </thead>
+  
+      <tbody id="tableBody3"></tbody>
+
+    </table>
+
+    <button onclick="openPopup()" style="margin-top: 20px;" id="ekleButton">Ekle</button>
+
+  </div>
+
+  <div id="popup" class="popup">
+
+    <div class="popup-content">
+
+      <span class="close" onclick="closePopup()">&times;</span>
+
+      <div class="input-group">
+    
+        <br>
+        <label for="description">Görev tipi</label>
+        <input type="text" class="input-field" id="description" placeholder="İsim" required>
+
+      </div>
+
+      <button id="saveChangesBtn" onclick="saveUserData()">Kaydet</button>
+
+    </div>
+
+  </div>
+
+  <script src="görevtipı.js"></script>
+
+</body>
+
+</html>

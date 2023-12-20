@@ -1,0 +1,33 @@
+* {
+    padding: 0%;
+    margin: 0%;
+  }
+  
+  #gerisi {
+    margin: 0 auto;
+    margin-top: -20px;
+    width: 100%;
+    background-color: #8f8c8c;
+    border-radius: 10px;
+    padding: 9px;
+    padding-top: 5px;
+    margin-left: 0px;
+  }
+  
+  button {
+    width: 57px;
+    height: 37px;
+    border-radius: 7px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #0fa5aa;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #9f9cac;
+  }
+  
+  td {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
